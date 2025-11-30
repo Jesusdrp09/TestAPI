@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+import os 
 
 app = Flask(__name__)
 
@@ -21,4 +22,4 @@ def register():
         return f"{request.form["username"]}, {request.form["password"]}"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
